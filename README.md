@@ -26,5 +26,4 @@ This Web application is using MERN mongoDB Express React and node.js as well as 
   npm start
   ```
 
-# Ensat No Sql Project 
-## Adnan El Mouttaki - Raja Es-sahri - Mohamed Hakmaoui
+# Adnan El Mouttaki
