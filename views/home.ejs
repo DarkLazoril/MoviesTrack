@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Movies and TV Shows</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <style>
+
+      .jumbotron {
+        background-color: #fff;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        padding: 2rem;
+        border-radius: 10px;
+      }
+  
+      .jumbotron h2 {
+        font-size: 2.1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: white;
+      }
+  
+      .jumbotron p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: white;
+      }
+      .section-container {
+        background-color: #fff;
+        padding: 2rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border-radius: 0.5rem;
+      }
+      
+      .section-container:hover {
+        box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.2);
+      }
+      
+    </style>
+  </head>
+  
+  <body>
+    <% include partials/header %>
+    <% include partials/navbar %>
+    <% include partials/flash %>
+  
+    <div class="container">
+      <div class="jumbotron section-container" style="padding: 2rem;">
+        <h2>Welcome</h2>
+        <p>Keep up with your movies and TV shows!</p>
+        <hr class="my-4">
+        <% include partials/searchform %>
+      </div>
+  
+      <div class="row">
+        <% for (var i = 0; i < movies.length; i++) { %> <% var movie = movies[i]; %>
+        <% if(movie.poster_path != "N/A") { %>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="thumbnail moviecard">
+            <div class="block" style="text-align: center">
+              <% url = `/getImdbIdofClickedMovie/${movie.id}` %>
+              <a href="<%=url%>">
+                <% imageUrl = 'https://image.tmdb.org/t/p/w300/' + movie.poster_path
+                %>
+                <img src="<%= imageUrl %>" alt="Image Not Available"
+                  onerror="this.onerror=null;this.src='Images/notfound.jpg';" />
+              </a>
+              <div>
+                <a href="/getImdbIdofClickedMovie">
+                  <%= movie.title %>
+                </a>
+                <span class="year">(<%= movie.release_date.split("-")[0] %>)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %> <% } %>
+      </div>
+  
+      <% include partials/footer %>
+    </div>
+  </body>
+  
+</html>

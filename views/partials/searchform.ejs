@@ -1,0 +1,85 @@
+<form class="form-group" action="/search/results" method="GET">
+  <div class="row">
+    <div class="col-lg-10 col-sm-9 col-8">
+      <input type="text" class="form-control" name="searchquery" placeholder="Search Movies, TV Shows, People" autofocus />
+      <button type="button" class="clear-button"><i class="fas fa-times-circle"></i></button>
+    </div>
+
+    <div class="col-lg-2 col-sm-3 col-4">
+      <select class="custom-select" name="type">
+        <option value="">Select Category</option>
+        <option value="movie">Movies</option>
+        <option value="series">TV Shows</option>
+        <option value="people">People</option>
+      </select>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary search-button">
+    <i class="fas fa-search"></i>
+    Search
+  </button>
+</form>
+
+<style>
+  /* Placeholder text animation */
+  .form-control::-webkit-input-placeholder {
+    transition: all 0.3s ease-in-out;
+    opacity: 0.5;
+  }
+  
+  .form-control:focus::-webkit-input-placeholder {
+    opacity: 0;
+  }
+  
+  /* Clear button */
+  .clear-button {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+  }
+  
+  .clear-button i {
+    color: #999;
+  }
+  
+  .clear-button:hover i {
+    color: #e22b2b;
+  }
+  
+  /* Search button */
+  .search-button {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .search-button:hover {
+    background-color: #333;
+    border-color: #ffffff;
+  }
+  
+  .search-button:hover i {
+    color: #fff;
+  }
+</style>
+
+<script>
+  // Clear button functionality
+  const clearButton = document.querySelector('.clear-button');
+  const searchInput = document.querySelector('.form-control');
+  
+  clearButton.addEventListener('click', () => {
+    searchInput.value = '';
+  });
+  
+  // Placeholder text animation
+  searchInput.addEventListener('input', () => {
+    if (searchInput.value.length > 0) {
+      searchInput.setAttribute('placeholder', '');
+    } else {
+      searchInput.setAttribute('placeholder', 'Search Movies, TV Shows, People');
+    }
+  });
+</script>
