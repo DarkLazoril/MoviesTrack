@@ -17,6 +17,7 @@ This Web application is using MERN mongoDB Express React and node.js as well as 
   ```sh
   set DATABASEURL="Your database url without quotes"
   ```
+* Since the user preferences as his liked movies will be stocked in our NOSQL MongoDb, you'll need to create a new database with the corresponding documents in it. 
 * Run app using 
   ```sh
   node app.js
