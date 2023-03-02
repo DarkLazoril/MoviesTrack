@@ -26,4 +26,8 @@ This Web application is using MERN mongoDB Express React and node.js as well as 
   npm start
   ```
 
+![Capture d’écran (31)](https://user-images.githubusercontent.com/81829785/222327825-f2a4196a-d44b-45e0-b9cb-2e547c899abe.png)
+
+![Capture d’écran (32)](https://user-images.githubusercontent.com/81829785/222327834-7e9c10b9-2d88-42b6-aeb9-f676206e8f43.png)
+
 # Adnan El Mouttaki
